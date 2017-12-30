@@ -1,11 +1,12 @@
 <?php
-namespace Package\Translation\Locale;
+namespace Kit\Translation\Locale;
 
 use StdClass;
-use Package\Translation\Exceptions\BadConfigurationSourceException;
-use Package\Translation\Locale\Interfaces\ResourceParserInterface;
+use Kit\Translation\Locale\Interfaces\ResourceParserInterface;
+use Kit\Translation\Exceptions\BadConfigurationSourceException;
 
-class ResourceParser implements ResourceParserInterface {
+class ResourceParser implements ResourceParserInterface
+{
 
 	/**
 	* @var 		$resource
@@ -24,7 +25,8 @@ class ResourceParser implements ResourceParserInterface {
 	* @access 	public
 	* @return 	void
 	*/
-	public function __construct(StdClass $resource) {
+	public function __construct(StdClass $resource)
+	{
 		$this->resource = $resource;
 		$this->parsedResource = new StdClass;
 	}
@@ -35,15 +37,20 @@ class ResourceParser implements ResourceParserInterface {
 	* @access 	public
 	* @return 	Object
 	*/
-	public function parseResource() : ResourceParser {
+	public function parseResource() : ResourceParser
+	{
 		$data = $this->resource->data;
 		$dataLayer = explode("\n", $data);
 		$parsedResource = array();
 
 		foreach($dataLayer as $key) {
+
 			$key = explode(':', $key);
+			
 			if (sizeof($key) < 2) {
+			
 				throw new BadConfigurationSourceException(sprintf('Error getting message from %s. Invalid message formatting.', $this->resource->path));
+
 			}
 
 			$parsedResource[$key[0]] = array('data' => $this->stripIndexSpace($key[1]), 'tags' => $this->getParameters($key[1]));
@@ -59,7 +66,8 @@ class ResourceParser implements ResourceParserInterface {
 	* @access 	public
 	* @return 	Array
 	*/
-	public function getResource() : Array {
+	public function getResource() : Array
+	{
 		return $this->parsedResource;
 	}
 
@@ -70,14 +78,19 @@ class ResourceParser implements ResourceParserInterface {
 	* @access 	private
 	* @return 	String
 	*/
-	private function stripIndexSpace($string='') {
+	private function stripIndexSpace($string='')
+	{
 		$string = explode(' ', $string);
 		$stringArray = array();
+
 		foreach($string as $str) {
+		
 			if ($str !== '') {
 				$stringArray[] = $str;
 			}
+		
 		}
+
 		return implode(' ', $stringArray);
 	}
 
@@ -86,9 +99,12 @@ class ResourceParser implements ResourceParserInterface {
 	* @access 	private
 	* @return 	Array
 	*/
-	private function getParameters($string='') {
+	private function getParameters($string='')
+	{
 		if(preg_match_all("/\[(.*?)\]/", $string, $match)) {
+	
 			return $match[1];
+	
 		}
 	}
 

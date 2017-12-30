@@ -1,9 +1,10 @@
 <?php
-namespace Package\Translation\Exceptions;
+namespace Kit\Translation\Exceptions;
 
 use App\BaseException;
 
-class MissingParameterException extends BaseException {
+class MissingParameterException extends BaseException
+{
 
 	/**
 	* @var 		$template
@@ -16,7 +17,8 @@ class MissingParameterException extends BaseException {
 	* @access 	public
 	* @return 	void
 	*/
-	public function __construct($message='') {
+	public function __construct($message='')
+	{
 		parent::__construct($message);
 	}
 

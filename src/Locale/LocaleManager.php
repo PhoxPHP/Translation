@@ -1,11 +1,12 @@
 <?php
-namespace Package\Translation\Locale;
+namespace Kit\Translation\Locale;
 
 use RuntimeException;
-use Package\Translation\Locale\Interfaces\MessageInterface;
-use Package\Translation\Locale\Interfaces\LocaleInterface;
+use Kit\Translation\Locale\Interfaces\LocaleInterface;
+use Kit\Translation\Locale\Interfaces\MessageInterface;
 
-class LocaleManager implements LocaleInterface {
+class LocaleManager implements LocaleInterface
+{
 
 	/**
 	* English language code
@@ -58,10 +59,14 @@ class LocaleManager implements LocaleInterface {
 	* @access 	public
 	* @return 	void
 	*/
-	public function __construct($languageCode='', $country='') {
+	public function __construct($languageCode='', $country='')
+	{
 		if (!function_exists('setlocale')) {
+		
 			throw new RuntimeException("setlocale function does not exist");
+		
 		}
+
 		LocaleManager::$languageCode = $languageCode;
 		LocaleManager::$country = $country;
 	}
@@ -72,14 +77,21 @@ class LocaleManager implements LocaleInterface {
 	* @access 	public
 	* @return 	Mixed
 	*/
-	public function __call($method, $arguments) {
+	public function __call($method, $arguments)
+	{
 		$criteriaMatch = preg_match('/(get)(.*[a-zA-Z0-9])/', $method, $match);
 		$localeconv = localeconv();
+	
 		if (!method_exists($this, $method) && $criteriaMatch) {
+	
 			$method = $match[2];
+	
 			if (!isset($localeconv[$method])) {
+	
 				return;
+	
 			}
+	
 			return $localeconv[$method];
 		}
 	}
@@ -90,7 +102,8 @@ class LocaleManager implements LocaleInterface {
 	* @access 	public
 	* @return 	void
 	*/
-	public function setLocale() {
+	public function setLocale()
+	{
 		setlocale(LC_ALL, $this->getLocale());
 	}
 
@@ -100,11 +113,16 @@ class LocaleManager implements LocaleInterface {
 	* @access 	public
 	* @return 	String
 	*/
-	public function getLocale() {
+	public function getLocale()
+	{
 		$locale = LocaleManager::$languageCode;
+
 		if (LocaleManager::$country !== '') {
+		
 			$locale = $locale.'_'.LocaleManager::$country;
+		
 		}
+
 		return $locale;
 	}
 
@@ -115,7 +133,8 @@ class LocaleManager implements LocaleInterface {
 	* @access 	public
 	* @return 	void
 	*/
-	public function setLanguageCode($languageCode='') {
+	public function setLanguageCode($languageCode='')
+	{
 		LocaleManager::$languageCode = $languageCode;
 	}
 
@@ -126,7 +145,8 @@ class LocaleManager implements LocaleInterface {
 	* @access 	public
 	* @return 	void
 	*/
-	public function setCountry($country='') {
+	public function setCountry($country='')
+	{
 		LocaleManager::$country = $country;
 	}
 
@@ -136,7 +156,8 @@ class LocaleManager implements LocaleInterface {
 	* @access 	public
 	* @return 	String
 	*/
-	public function getLanguageCode() {
+	public function getLanguageCode()
+	{
 		return LocaleManager::$languageCode;
 	}
 
@@ -146,7 +167,8 @@ class LocaleManager implements LocaleInterface {
 	* @access 	public
 	* @return 	String
 	*/
-	public function getCountry() {
+	public function getCountry()
+	{
 		return LocaleManager::$country;
 	}
 }
