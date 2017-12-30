@@ -1,5 +1,5 @@
 <?php
-namespace Package\Translation\Locale;
+namespace Kit\Translation\Locale;
 
 use Translation\Exceptions\ResourceNotFoundException;
 use Translation\Locale\Interfaces\MessageInterface;
