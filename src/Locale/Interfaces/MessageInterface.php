@@ -1,9 +1,10 @@
 <?php
-namespace Package\Translation\Locale\Interfaces;
+namespace Kit\Translation\Locale\Interfaces;
 
-use Translation\Factory;
+use Kit\Translation\Factory;
 
-interface MessageInterface {
+interface MessageInterface
+{
 
 	/**
 	* Gets a message from properties file.

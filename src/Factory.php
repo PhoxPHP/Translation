@@ -1,13 +1,14 @@
 <?php
-namespace Package\Translation;
+namespace Kit\Translation;
 
 use RuntimeException;
-use Package\Translation\Locale\Message;
-use Package\Translation\Locale\LocaleManager;
-use Package\DependencyInjection\Injector\InjectorBridge;
-use Package\Translation\Exceptions\BadConfigurationSourceException;
+use Kit\Translation\Locale\Message;
+use Kit\Translation\Locale\LocaleManager;
+use Kit\DependencyInjection\Injector\InjectorBridge;
+use Kit\Translation\Exceptions\BadConfigurationSourceException;
 
-class Factory extends InjectorBridge {
+class Factory extends InjectorBridge
+{
 
 	/**
 	* @var 		$locale
@@ -16,11 +17,12 @@ class Factory extends InjectorBridge {
 	public 		$locale;
 
 	/**
-	* @param 	$locale Package\Translation\Locale\LocaleManager
+	* @param 	$locale Kit\Translation\Locale\LocaleManager
 	* @access 	public
 	* @return 	void
 	*/
-	public function __construct(LocaleManager $locale) {
+	public function __construct(LocaleManager $locale)
+	{
 		$this->locale = $locale;
 	}
 
@@ -30,7 +32,8 @@ class Factory extends InjectorBridge {
 	* @access 	public
 	* @return 	String
 	*/
-	public function getMessage($message='', array $parameters=[]) {
+	public function getMessage($message='', array $parameters=[])
+	{
 		$messageLocale = new Message($message, $this->locale);
 		return $messageLocale->getMessage($this, $parameters);
 	}
@@ -39,7 +42,8 @@ class Factory extends InjectorBridge {
 	* @access 	public
 	* @return 	String
 	*/
-	public function setLocale() {
+	public function setLocale()
+	{
 		return $this->locale->setLocale();
 	}
 
@@ -47,7 +51,8 @@ class Factory extends InjectorBridge {
 	* @access 	public
 	* @return 	String
 	*/
-	public function getLocale() {
+	public function getLocale()
+	{
 		return $this->locale->getLocale();
 	}
 
@@ -56,10 +61,14 @@ class Factory extends InjectorBridge {
 	* @access 	public
 	* @return 	Array
 	*/
-	public function getConfig($key='') {
+	public function getConfig($key='')
+	{
 		$config = include 'public/config/translation.php';
+
 		if (gettype($config) !== 'array') {
+		
 			throw new BadConfigurationSourceException("Invalid configuration file");
+		
 		}
 
 		return $config[$key] ?? $config;

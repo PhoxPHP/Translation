@@ -1,10 +1,11 @@
 <?php
-namespace Translation\Locale\Interfaces;
+namespace Kit\Translation\Locale\Interfaces;
 
-use Translation\Locale\ResourceParser;
 use StdClass;
+use Kit\Translation\Locale\ResourceParser;
 
-interface ResourceParserInterface {
+interface ResourceParserInterface
+{
 
 	/**
 	* Parses a property file of a given locale.

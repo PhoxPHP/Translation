@@ -1,7 +1,8 @@
 <?php
-namespace Package\Translation\Locale\Interfaces;
+namespace Kit\Translation\Locale\Interfaces;
 
-interface LocaleInterface {
+interface LocaleInterface
+{
 
 	/**
 	* @param 	$method
