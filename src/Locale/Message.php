@@ -25,11 +25,11 @@
 
 namespace Kit\Translation\Locale;
 
-use Translation\Exceptions\ResourceNotFoundException;
-use Translation\Locale\Interfaces\MessageInterface;
-use Translation\Locale\ResourceParser;
-use Translation\Locale\Locale;
-use Translation\Factory;
+use Kit\Translation\Exceptions\ResourceNotFoundException;
+use Kit\Translation\Locale\Interfaces\MessageInterface;
+use Kit\Translation\Locale\ResourceParser;
+use Kit\Translation\Locale\Locale;
+use Kit\Translation\Factory;
 use RuntimeException;
 use StdClass;
 
