@@ -28,7 +28,7 @@ namespace Kit\Translation\Locale;
 use Kit\Translation\Exceptions\ResourceNotFoundException;
 use Kit\Translation\Locale\Interfaces\MessageInterface;
 use Kit\Translation\Locale\ResourceParser;
-use Kit\Translation\Locale\Locale;
+use Kit\Translation\Locale\LocaleManager;
 use Kit\Translation\Factory;
 use RuntimeException;
 use StdClass;
@@ -63,11 +63,11 @@ class Message implements MessageInterface {
 	* Constructor
 	*
 	* @param 	$message <String>
-	* @param 	$locale <Object> Translation\Locale
+	* @param 	$locale <Object> Kit\Translation\Locale\LocaleManager
 	* @access 	public
 	* @return 	void
 	*/
-	public function __construct($message, Locale $locale) {
+	public function __construct($message, LocaleManager $locale) {
 		$this->message = $message;
 		$this->locale = $locale;
 	}
