@@ -87,12 +87,10 @@ class Factory extends InjectorBridge
 	*/
 	public function getConfig($key='')
 	{
-		$config = include 'public/config/translation.php';
+		$config = include 'config.php';
 
 		if (gettype($config) !== 'array') {
-		
 			throw new BadConfigurationSourceException("Invalid configuration file");
-		
 		}
 
 		return $config[$key] ?? $config;
