@@ -2,7 +2,7 @@
 	"name": "phoxphp/translation",
 	"description": "PhoxPHP Translation Component",
 	"type": "project",
-	"keywords": ["php", "php7", "translation"],
+	"keywords": ["php", "php7", "translation", "phoxphp"],
 	"author": [
 		{
 			"name": "Peter Taiwo",
