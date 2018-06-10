@@ -1,19 +1,16 @@
 <?php
 /**
-* @author 	Peter Taiwo
-* @version 	1.0.0
+* @author 		Peter Taiwo <peter@phoxphp.com>
+* @package 		Kit\Translation\Factory
+* @license 		MIT License
 *
-* MIT License
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
 * in the Software without restriction, including without limitation the rights
 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 * copies of the Software, and to permit persons to whom the Software is
 * furnished to do so, subject to the following conditions:
-
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-
+*
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -28,10 +25,9 @@ namespace Kit\Translation;
 use RuntimeException;
 use Kit\Translation\Locale\Message;
 use Kit\Translation\Locale\LocaleManager;
-use Kit\DependencyInjection\Injector\InjectorBridge;
 use Kit\Translation\Exceptions\BadConfigurationSourceException;
 
-class Factory extends InjectorBridge
+class Factory
 {
 
 	/**
@@ -41,9 +37,9 @@ class Factory extends InjectorBridge
 	public 		$locale;
 
 	/**
-	* @param 	$locale Kit\Translation\Locale\LocaleManager
+	* @param 	$locale <Kit\Translation\Locale\LocaleManager>
 	* @access 	public
-	* @return 	void
+	* @return 	<void>
 	*/
 	public function __construct(LocaleManager $locale)
 	{
@@ -51,10 +47,12 @@ class Factory extends InjectorBridge
 	}
 
 	/**
+	* Returns a message.
+	*
 	* @param 	$message <String>
 	* @param 	$parameters <Array>
 	* @access 	public
-	* @return 	String
+	* @return 	<String>
 	*/
 	public function getMessage($message='', array $parameters=[])
 	{
@@ -64,7 +62,7 @@ class Factory extends InjectorBridge
 
 	/**
 	* @access 	public
-	* @return 	String
+	* @return 	<String>
 	*/
 	public function setLocale()
 	{
@@ -73,7 +71,7 @@ class Factory extends InjectorBridge
 
 	/**
 	* @access 	public
-	* @return 	String
+	* @return 	<String>
 	*/
 	public function getLocale()
 	{
@@ -83,7 +81,7 @@ class Factory extends InjectorBridge
 	/**
 	* @param 	$key <String>
 	* @access 	public
-	* @return 	Array
+	* @return 	<Array>
 	*/
 	public function getConfig($key='')
 	{
