@@ -1,19 +1,16 @@
 <?php
 /**
-* @author 	Peter Taiwo
-* @version 	1.0.0
+* @author 		Peter Taiwo <peter@phoxphp.com>
+* @package 		Kit\Translation\Locale\ResourceParser
+* @license 		MIT License
 *
-* MIT License
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
 * in the Software without restriction, including without limitation the rights
 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 * copies of the Software, and to permit persons to whom the Software is
 * furnished to do so, subject to the following conditions:
-
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-
+*
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -57,9 +54,6 @@ class ResourceParser implements ResourceParserInterface
 
 	/**
 	* {@inheritDoc}
-	*
-	* @access 	public
-	* @return 	Object
 	*/
 	public function parseResource() : ResourceParser
 	{
@@ -86,9 +80,6 @@ class ResourceParser implements ResourceParserInterface
 
 	/**
 	* {@inheritDoc}
-	*
-	* @access 	public
-	* @return 	Array
 	*/
 	public function getResource() : Array
 	{
@@ -100,19 +91,17 @@ class ResourceParser implements ResourceParserInterface
 	*
 	* @param 	$string <String>
 	* @access 	private
-	* @return 	String
+	* @return 	<String>
 	*/
-	private function stripIndexSpace($string='')
+	private function stripIndexSpace(String $string='')
 	{
 		$string = explode(' ', $string);
 		$stringArray = array();
 
 		foreach($string as $str) {
-		
 			if ($str !== '') {
 				$stringArray[] = $str;
 			}
-		
 		}
 
 		return implode(' ', $stringArray);
@@ -121,14 +110,12 @@ class ResourceParser implements ResourceParserInterface
 	/**
 	* @param 	$string <String>
 	* @access 	private
-	* @return 	Array
+	* @return 	<Mixed>
 	*/
-	private function getParameters($string='')
+	private function getParameters(String $string='')
 	{
 		if(preg_match_all("/\[(.*?)\]/", $string, $match)) {
-	
 			return $match[1];
-	
 		}
 	}
 

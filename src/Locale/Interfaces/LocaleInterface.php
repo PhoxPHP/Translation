@@ -1,19 +1,16 @@
 <?php
 /**
-* @author 	Peter Taiwo
-* @version 	1.0.0
+* @author 		Peter Taiwo <peter@phoxphp.com>
+* @package 		Kit\Translation\Locale\Interfaces\LocalInterface
+* @license 		MIT License
 *
-* MIT License
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
 * in the Software without restriction, including without limitation the rights
 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 * copies of the Software, and to permit persons to whom the Software is
 * furnished to do so, subject to the following conditions:
-
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-
+*
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -32,7 +29,7 @@ interface LocaleInterface
 	* @param 	$method
 	* @param 	$arguments
 	* @access 	public
-	* @return 	Mixed
+	* @return 	<Mixed>
 	*/
 	public function __call($method, $arguments);
 
@@ -40,7 +37,7 @@ interface LocaleInterface
 	* Sets locale using setlocale function.
 	*
 	* @access 	public
-	* @return 	void
+	* @return 	<void>
 	*/
 	public function setLocale();
 
@@ -48,33 +45,33 @@ interface LocaleInterface
 	* Gets current locale.
 	*
 	* @access 	public
-	* @return 	String
+	* @return 	<String>
 	*/
 	public function getLocale();
 
 	/**
 	* @param 	$languageCode <String>
 	* @access 	public
-	* @return 	String
+	* @return 	<String>
 	*/
 	public function setLanguageCode($languageCode='');
 
 	/**
 	* @param 	$country <String>
 	* @access 	public
-	* @return 	String
+	* @return 	<String>
 	*/
 	public function setCountry($country='');
 
 	/**
 	* @access 	public
-	* @return 	String
+	* @return 	<String>
 	*/
 	public function getLanguageCode();
 
 	/**
 	* @access 	public
-	* @return 	String
+	* @return 	<String>
 	*/
 	public function getCountry();
 
