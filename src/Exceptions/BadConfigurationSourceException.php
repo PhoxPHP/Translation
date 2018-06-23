@@ -22,16 +22,10 @@
 
 namespace Kit\Translation\Exceptions;
 
-use App\BaseException;
+use Exception
 
-class BadConfigurationSourceException extends BaseException
+class BadConfigurationSourceException extends Exception
 {
-
-	/**
-	* @var 		$template
-	* @access 	protected
-	*/
-	protected 	$template = '404x';
 
 	/**
 	* @param 	$message <String>
