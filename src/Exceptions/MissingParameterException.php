@@ -22,16 +22,10 @@
 
 namespace Kit\Translation\Exceptions;
 
-use App\BaseException;
+use Exception
 
-class MissingParameterException extends BaseException
+class MissingParameterException extends Exception
 {
-
-	/**
-	* @var 		$template
-	* @access 	protected
-	*/
-	protected 	$template = '404x';	
 
 	/**
 	* @param 	$message <String>

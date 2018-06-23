@@ -22,16 +22,10 @@
 
 namespace Kit\Translation\Exceptions;
 
-use App\BaseException;
+use Exception;
 
-class ResourceNotFoundException extends BaseException
+class ResourceNotFoundException extends Exception
 {
-
-	/**
-	* @var 		$template
-	* @access 	protected
-	*/
-	protected 	$template = '404x';
 
 	/**
 	* @param 	$message <String>
@@ -40,8 +34,7 @@ class ResourceNotFoundException extends BaseException
 	*/
 	public function __construct($message='')
 	{
-		$this->message  = $message;
-		parent::__construct();
+		parent::__construct($message);
 	}
 
 }
